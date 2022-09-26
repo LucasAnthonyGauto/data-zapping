@@ -1,0 +1,53 @@
+.largeButtons,
+ .roundButton{
+  cursor: pointer;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 3.5vw;
+  min-height: 20px;
+	margin: 0px .5vw;
+	background: #241744;
+	color: #fff;
+	font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+.arrowButtons{
+	width: 20vw;
+  min-width: 70px;
+	border-radius: 6vw;
+}
+
+.arrowButtons:hover {
+	background: #171744;
+}
+
+.arrowButtons:active{
+	background-color: #ac3030;
+}
+
+
+.roundButton{
+	width: 3.5vw;
+  min-width: 20px;
+	border-radius: 50% ;
+}
+
+.roundButton:hover {
+	background: #171744;
+}
+
+.roundButton:active{
+	background-color: #ac3030;
+}
+
+@media screen and (max-width: 850px) {
+	.arrowButtons,
+ .roundButton{
+  font-size: .5rem;
+}
+}
+

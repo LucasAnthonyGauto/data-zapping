@@ -1,0 +1,23 @@
+.smallImg {
+  width: 14vw;
+}
+
+.mediumImg{
+  max-width: 20vw;
+}
+
+.backgroundImg {
+  max-width: 30vw;
+}
+
+@media screen and (max-width: 750px) {
+  .smallImg{
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .smallImg{
+    width: 50vw;
+  }
+}
