@@ -1,5 +1,6 @@
 .largeButtons,
- .roundButton{
+ .roundButton,
+ .btnActive{
   cursor: pointer;
 	border: none;
 	display: flex;
@@ -29,25 +30,28 @@
 	background-color: #ac3030;
 }
 
-
-.roundButton{
+.roundButton, .btnActive{
 	width: 3.5vw;
   min-width: 20px;
 	border-radius: 50% ;
 }
 
-.roundButton:hover {
-	background: #171744;
-}
 
-.roundButton:active{
-	background-color: #ac3030;
+
+.roundButton:hover, .btnActive{
+	background: #171744;
+	transition: .3s;
+	transform: scale(1.2);
 }
 
 @media screen and (max-width: 850px) {
 	.arrowButtons,
  .roundButton{
-  font-size: .5rem;
+  font-size: 2rem;
 }
+	.roundButton{
+		width: 17.5vw;
+		height: 17.5vw;
+	}
 }
 
