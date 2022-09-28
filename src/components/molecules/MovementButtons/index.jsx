@@ -6,6 +6,10 @@ function MoveButtons ({ text, buttonAction, btnType }) {
       return (
         <Button btnStyle={"btnActive"} text={text}/>
       );
+    case 'hide':
+      return (
+        <Button btnStyle={"butonHide"} text={text}/>
+      );
     default:
       return (
         <Button text={text} buttonAction={buttonAction}/>

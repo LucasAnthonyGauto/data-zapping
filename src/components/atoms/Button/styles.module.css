@@ -1,20 +1,21 @@
 .largeButtons,
  .roundButton,
- .btnActive{
+ .btnActive,
+ .butonHide{
   cursor: pointer;
 	border: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	height: 3.5vw;
-  min-height: 20px;
+	height: 4.5vw;
+	min-height: 20px;
 	margin: 0px .5vw;
 	background: #241744;
 	color: #fff;
-	font-weight: 800;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+	font-weight: 800;	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.5rem;
 }
 .arrowButtons{
 	width: 20vw;
@@ -30,15 +31,15 @@
 	background-color: #ac3030;
 }
 
-.roundButton, .btnActive{
-	width: 3.5vw;
+.roundButton, .btnActive, .butonHide{
+	width: 4.5vw;
   min-width: 20px;
 	border-radius: 50% ;
 }
 
 
 
-.roundButton:hover, .btnActive{
+.roundButton:hover, .btnActive ,.butonHide:hover{
 	background: #171744;
 	transition: .3s;
 	transform: scale(1.2);
@@ -46,12 +47,31 @@
 
 @media screen and (max-width: 850px) {
 	.arrowButtons,
+ .roundButton,
+ .butonHide,
+ .btnActive{
+  font-size: 2rem;
+}
+	.roundButton,
+	.btnActive,
+	.butonHide{
+		width: 9.5vw;
+		height: 9.5vw;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.arrowButtons,
  .roundButton{
   font-size: 2rem;
 }
-	.roundButton{
-		width: 17.5vw;
-		height: 17.5vw;
+	.butonHide{
+		display: none;
+	}
+	.roundButton,
+	.btnActive{
+		width: 29.5vw;
+		height: 29.5vw;
 	}
 }
 

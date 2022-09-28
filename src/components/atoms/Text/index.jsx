@@ -1,5 +1,5 @@
-const Text = ({ text }) => {
-  return ( <p>{text}</p>)
+const Text = ({ text, textStyle }) => {
+  return ( <p className={textStyle}>{text}</p>)
 };
 
 export default Text;

@@ -1,24 +1,29 @@
 import {BrowserRouter, Routes, Route, NavLink} from "react-router-dom"
-import {HomeScreen, ListPopularMovies, MovieDetailScreen, ListTopRatedMovies} from "./views"
+import {HomeScreen, ListPopularMovies, MovieDetailScreen, ListTopRatedMovies, CartScreen} from "./views"
+import {AppProvider} from "./context/AppContext"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() { 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <nav>
-          <NavLink activeClassName="active" to='/'>Home</NavLink>
-          <NavLink activeClassName="active" to='movie/popular/1'>Popular Movies</NavLink>
-          <NavLink activeClassName="active" to='movie/toprated/1'>Mejor Valoradas</NavLink>
-        </nav>
-        <Routes>
-          <Route exact path='/' element={<HomeScreen />} />
-          {/* <Route path='/movies' element={<ListMoviesScreen />} /> */}
-          <Route path={`movie/popular/:page`} element={<ListPopularMovies />} />
-          <Route path={`movie/toprated/:page`} element={<ListTopRatedMovies />} />
-          <Route path={`movie/:movieId`} element={<MovieDetailScreen />} />
-          <Route path='*' element={"Error 404"} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+      <AppProvider>
+        <BrowserRouter>
+          <nav>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='movie/popular/1'>Popular Movies</NavLink>
+            <NavLink to='movie/toprated/1'>Mejor Valoradas</NavLink>
+            <NavLink to='cart'>Mi carrito</NavLink>
+          </nav>
+          <Routes>
+            <Route exact path='/' element={<HomeScreen />} />
+            {/* <Route path='/movies' element={<ListMoviesScreen />} /> */}
+            <Route path={`movie/popular/:page`} element={<ListPopularMovies />} />
+            <Route path={`movie/toprated/:page`} element={<ListTopRatedMovies />} />
+            <Route path={`movie/:movieId`} element={<MovieDetailScreen />} />
+            <Route path={`cart`} element={<CartScreen />} />
+            <Route path='*' element={"Error 404"} />
+          </Routes>
+        </BrowserRouter>
+      </AppProvider>
   )
 }
 
