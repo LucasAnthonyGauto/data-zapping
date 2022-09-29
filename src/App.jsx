@@ -3,7 +3,7 @@ import {HomeScreen, ListPopularMovies, MovieDetailScreen, ListTopRatedMovies, Ca
 import {AppProvider} from "./context/AppContext"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() { 
+function App() {
   return (
       <AppProvider>
         <BrowserRouter>

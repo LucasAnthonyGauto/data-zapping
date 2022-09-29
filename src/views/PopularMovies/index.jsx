@@ -34,7 +34,9 @@ const Page = () => {
             className={styles["listMovies"]}>
               {movies.length && <PopularMovies movies={movies}/>}
             </div>
-            <Keypad positionPage={page} page={+page} typePage={typePage}/>
+            <div className={styles["paginationButtons"]}>
+              <Keypad positionPage={page} page={+page} typePage={typePage}/>
+            </div>
         </section>
         ) : (
           <Title text={"Esta pagina no existe"} type={"h1"}/>

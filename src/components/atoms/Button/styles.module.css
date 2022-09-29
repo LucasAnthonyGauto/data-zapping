@@ -39,7 +39,9 @@
 
 
 
-.roundButton:hover, .btnActive ,.butonHide:hover{
+.roundButton:hover, 
+.btnActive,
+.butonHide:hover{
 	background: #171744;
 	transition: .3s;
 	transform: scale(1.2);
