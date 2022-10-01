@@ -5,7 +5,12 @@ const {Provider} = AppContext
 
 const AppProvider = ({children}) => {
   const [cart, setCart] = React.useState([])
-  console.log(cart)
+  const [selectLanguage, setLanguage] = React.useState("en")
+  console.log(selectLanguage)
+
+  const changeLenguage = (lenguage) => {
+    setLanguage(lenguage)
+  }
 
   const addToCart = (item, count) => {
     if(isInCart(item.id)) {
@@ -68,8 +73,8 @@ const AppProvider = ({children}) => {
       increaseQty,
       decreaseQty,
       deleteFromCart,
-      deleteAllCart
-
+      deleteAllCart,
+      changeLenguage
     }}>
       {children}
     </Provider>

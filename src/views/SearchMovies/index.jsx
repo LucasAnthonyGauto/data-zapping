@@ -9,10 +9,9 @@ const Page = () => {
   const [movies, setMovies] = useState([])
   const { page } = useParams()
   const typePage = "toprated"
-
   
   const fetchMovies = () => {
-    axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=192e0b9821564f26f52949758ea3c473&language=en-MX&page=${page}`).then(res => {
+    axios.get(`https://api.themoviedb.org/3/search/movie?query=los vengadores&api_key=192e0b9821564f26f52949758ea3c473&language=es-MX&page=${page}`).then(res => {
       setMovies(res.data.results)
     }).catch(err => console.error(err))
   }

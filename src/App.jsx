@@ -1,7 +1,6 @@
 import {BrowserRouter, Routes, Route, NavLink} from "react-router-dom"
 import {HomeScreen, ListPopularMovies, MovieDetailScreen, ListTopRatedMovies, CartScreen} from "./views"
 import {AppProvider} from "./context/AppContext"
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

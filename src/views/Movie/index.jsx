@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import {useEffect, useState, useContext} from "react"
 import axios from "axios"
 import {Title, Img, Text,Button} from "../../components/atoms"
@@ -10,6 +10,10 @@ const Page = () => {
   const [movie, setMovie] = useState(null)
   const [count, setCount] = useState(1)
   
+  const urlPrevious = () => {
+    useNavigate(window.history.back())
+  }
+  console.log(window.history);
   const increaseCount = () => {
     setCount(count + 1)
   }
@@ -33,6 +37,7 @@ const Page = () => {
   return movie ? (
     <section>
       <div>
+        <Button buttonAction={urlPrevious}/>
           <Title type='h1' text={movie.title} />
           <Img exportImg={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} textAlt="movie.original_title"  />
           <Title type={"h3"}/>
