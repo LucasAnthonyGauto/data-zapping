@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom"
 const Page = () => {
   const [movies, setMovies] = useState([])
   const { page } = useParams()
-  const typePage = "toprated"
+  const typePage = "movie/toprated"
 
   
   const fetchMovies = () => {
