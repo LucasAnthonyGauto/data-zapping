@@ -1,6 +1,8 @@
-function Input ({ inputType, placeholderText, onChange }) {
+import style from './styles.module.css'
+
+function Input ({inputStyle="searchBars", inputType, placeholderText, onChange, name }) {
   return (
-    <input placeholder={placeholderText} type={inputType} onChange={onChange}/>
+    <input className={style[inputStyle]} placeholder={placeholderText} type={inputType} onChange={onChange} name={name}/>
   )
 }
 

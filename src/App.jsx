@@ -1,12 +1,14 @@
 import {BrowserRouter, Routes, Route, NavLink} from "react-router-dom"
-import {HomeScreen, ListPopularMovies, MovieDetailScreen, ListTopRatedMovies, CartScreen} from "./views"
+import {HomeScreen, ListPopularMovies, MovieDetailScreen, ListTopRatedMovies, CartScreen, SearchMovies} from "./views"
 import {AppProvider} from "./context/AppContext"
+import NavBars from "./components/molecules/NavBars";
 
 function App() {
   return (
       <AppProvider>
         <BrowserRouter>
           <nav>
+            <NavBars></NavBars>
             <NavLink to='/'>Home</NavLink>
             <NavLink to='movie/popular/1'>Popular Movies</NavLink>
             <NavLink to='movie/toprated/1'>Mejor Valoradas</NavLink>
@@ -17,6 +19,7 @@ function App() {
             {/* <Route path='/movies' element={<ListMoviesScreen />} /> */}
             <Route path={`movie/popular/:page`} element={<ListPopularMovies />} />
             <Route path={`movie/toprated/:page`} element={<ListTopRatedMovies />} />
+            <Route path={`movie/search/:movi/:page`} element={<SearchMovies />} />
             <Route path={`movie/:movieId`} element={<MovieDetailScreen />} />
             <Route path={`cart`} element={<CartScreen />} />
             <Route path='*' element={"Error 404"} />
