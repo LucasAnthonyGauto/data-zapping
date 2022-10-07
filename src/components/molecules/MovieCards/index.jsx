@@ -1,7 +1,7 @@
 import { Img, Title, Text } from '../../atoms'
 import styles from "./styles.module.css"
 
-function MovieCards ({ movieTitle, imageMovie,date, onClick }) {
+function SmallCards ({ movieTitle, imageMovie,date, onClick }) {
   return (
     <div className={styles['filmContainer']} onClick={onClick}>
       <Img styleImg={"smallImg"} exportImg={imageMovie} textAlt={"Image from the movie " + movieTitle}/>
@@ -11,4 +11,4 @@ function MovieCards ({ movieTitle, imageMovie,date, onClick }) {
   )
 }
 
-export default MovieCards;
+export default SmallCards;

@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
 import axios from "axios"
 import {Title} from "../../components/atoms"
-import {PopularMovies, Keypad} from "../../components/organisms"
+import {MoviesCards, Keypad} from "../../components/organisms"
 import { useParams } from "react-router-dom"
 
 
@@ -28,7 +28,7 @@ const Page = () => {
       text={`Best popular movies`} />
         <div 
         className={"listMovies"}>
-          {movies.length && <PopularMovies movies={movies}/>}
+          {movies.length && <MoviesCards movies={movies}/>}
         </div>
         <div className={"paginationButtons"}>
           <Keypad positionPage={page} page={+page} typePage={typePage}/>

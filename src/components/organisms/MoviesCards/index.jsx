@@ -1,15 +1,15 @@
 import { useState } from "react"
 import {useNavigate} from "react-router-dom"
-import { MovieCards } from "../../molecules"
+import { SmallCards } from "../../molecules"
 
-function PopularMovies ({movies}) {
+function MoviesCards ({movies}) {
   const navigate = useNavigate()
 
 
   return (
     <>
     {movies.map((movie) => (
-      <MovieCards 
+      <SmallCards 
         onClick={() => navigate(`/movie/${movie.id}`) } 
         imageMovie={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
         movieTitle={movie.title}/>
@@ -18,4 +18,4 @@ function PopularMovies ({movies}) {
   )
 }
 
-export default PopularMovies;
+export default MoviesCards;

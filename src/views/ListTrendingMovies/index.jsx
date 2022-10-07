@@ -1,34 +1,44 @@
 import {useState, useEffect} from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
-import { Title } from "../../components/atoms"
+import { Button, Title } from "../../components/atoms"
 import { MoviesCards, Keypad } from '../../components/organisms'
 
 const Page = () => {
   const { page } =  useParams()
-  const typePage = "movie/popular"
+  const typePage = "movie/trending"
+  const [searchedTime, setSearchedTime] = useState("week")
 
   const [movies, setMovies] = useState([])
 
   const fetchMovies = () => {
-    axios.get(`https://api.themoviedb.org/3/${typePage}?api_key=192e0b9821564f26f52949758ea3c473&language=en-MX&page=${page}`)
+    axios.get(`https://api.themoviedb.org/3/trending/movie/${searchedTime}?&api_key=192e0b9821564f26f52949758ea3c473&language=es&page=${page}`)
     .then(res => {
       setMovies(res.data.results)
     }).catch(err => console.error(err))
   }
-
-  console.log(page);
-
+  fetchMovies()
+  
   useEffect(() => {
     fetchMovies()
   }, [page])
 
+  function modifyTime () {
+    if (searchedTime === "week") {
+      setSearchedTime("day")
+    }
+    else if (searchedTime === "day" ) {
+      setSearchedTime("week")
+    }
+  }
+
   return movies.length > 0 ? (
     <section className="">
+      <Button buttonAction={() => {modifyTime()}} text={searchedTime}/>
       <Title
       titleStyle={"h1"} 
       type='h1' 
-      text={`Best popular movies`} />
+      text={`Most wanted movies of the ${searchedTime}`} />
         <div 
         className={"listMovies"}>
           {movies.length && <MoviesCards movies={movies}/>}

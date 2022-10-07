@@ -1,0 +1,55 @@
+.nav{
+  background-color: rgb(25, 44, 107);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav-full .nav-hide{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-full-links{
+  display: flex;
+  justify-content: space-between;
+  width: 60vw;
+}
+
+.nav-search{
+  width: 35vw;
+  display: flex;
+  justify-content: space-around;
+  margin: 1vw;
+}
+
+.nav-hide{
+display: none;
+}
+
+
+@media screen and (max-width: 850px) {
+  .nav-search{
+    width: 55vw;
+  }
+  .nav-full{
+    display: none;
+  }
+  .nav-hide{
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 450px){
+  .nav-search{
+    width: 80vw;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .nav-full{
+    display: none;
+  }
+  .nav-hide{
+    display: flex;
+  }
+}

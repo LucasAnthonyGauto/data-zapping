@@ -3,6 +3,7 @@ import {useEffect, useState, useContext} from "react"
 import axios from "axios"
 import {Title, Img, Text,Button} from "../../components/atoms"
 import { AppContext } from "../../context/AppContext"
+import './styles.scss'
 
 const Page = () => {
   const {addToCart} = useContext(AppContext)
@@ -36,21 +37,33 @@ const Page = () => {
 
   return movie ? (
     <section>
-      <div>
-        <Button buttonAction={urlPrevious}/>
-          <Title type='h1' text={movie.title} />
-          <Img exportImg={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} textAlt="movie.original_title"  />
-          <Title type={"h3"}/>
+      <div className="movi">
+        <Img styleImg={"backdropImg"} exportImg={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}/>
+        <div className="btnBack">
+          <Button text={"<="} buttonAction={urlPrevious}/>
+        </div>
+        <Title type='h1' text={movie.title} />
+        <div className="movi-img">
+          <Img styleImg="mediumImg" exportImg={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} textAlt="movie.original_title"  />
+          <Title type={"h4"} text={movie.release_date}/>
+        </div>
+        <div className="movi-inf">
+          <Title type={'h2'} text={movie.tagline}/>
           <Text text={movie.overview}/>
+        </div>
+        <div className="recomend">
+        </div>
+        <div className="buy">
           <Button text={"+"} buttonAction={() => increaseCount()}/>
           <Text text={count}/>
           <Button text={"-"} buttonAction={() => decreaseCount()}/>
           <Button text={"Añadir al carrito"} buttonAction={() => addToCart({id: movie.id, title: movie.title, img: movie.poster_path}, count)}/>
+        </div>
       </div>
     </section>
    
-  ) : (
-    <section>
+   ) : (
+     <section>
       <Title type='h1' text={'No se encontro la pelicula'} />
     </section>
   )

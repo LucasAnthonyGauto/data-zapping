@@ -1,14 +1,14 @@
 import {useState, useEffect} from "react"
 import axios from "axios"
 import {Title} from "../../components/atoms"
-import {PopularMovies, Keypad} from "../../components/organisms"
+import {MoviesCards, Keypad} from "../../components/organisms"
 import { useParams } from "react-router-dom"
 
 
 const Page = () => {
   const [movies, setMovies] = useState([])
   const { page, movi } = useParams()
-  const typePage = "search"
+  const typePage = "movie/search/" + movi
   
   const fetchMovies = () => {
     axios.get(`https://api.themoviedb.org/3/search/movie?query=${movi}&api_key=192e0b9821564f26f52949758ea3c473&language=es-MX&page=${page}`).then(res => {
@@ -27,7 +27,7 @@ const Page = () => {
       text={`Best popular movies`} />
         <div 
         className={"listMovies"}>
-          {movies.length && <PopularMovies movies={movies}/>}
+          {movies.length && <MoviesCards movies={movies}/>}
         </div>
         <div className={"paginationButtons"}>
           <Keypad positionPage={page} page={+page} typePage={typePage}/>

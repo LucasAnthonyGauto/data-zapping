@@ -6,18 +6,37 @@
   max-width: 20vw;
 }
 
-.backgroundImg {
-  max-width: 30vw;
+.backdropImg{
+  width: 100vw;
+  position: absolute;
+  top: 5vw;
+  z-index: -1;
+  opacity: .60;
 }
 
 @media screen and (max-width: 750px) {
   .smallImg{
     width: 30vw;
   }
+  .mediumImg{
+    max-width: 40vw;
+  }
+  .backdropImg{
+    width: 100vw;
+    top: 15vw;
+  }
+  
 }
 
 @media screen and (max-width: 450px) {
   .smallImg{
     width: 50vw;
+  }
+  .mediumImg{
+    max-width: 70vw;
+  }
+  .backdropImg{
+    width: 100vw;
+    top: 25vw;
   }
 }

@@ -1,7 +1,8 @@
 .largeButtons,
  .roundButton,
  .btnActive,
- .butonHide{
+ .butonHide,
+ .btnSearch{
   cursor: pointer;
 	border: none;
 	display: flex;
@@ -9,13 +10,12 @@
 	justify-content: center;
 	text-align: center;
 	height: 4.5vw;
-	min-height: 20px;
-	margin: 0px .5vw;
 	background: #241744;
 	color: #fff;
 	font-weight: 800;	
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 2.0vw;
+	z-index: 20;
 }
 .arrowButtons{
 	width: 20vw;
@@ -31,18 +31,20 @@
 	background-color: #ac3030;
 }
 
-.roundButton, .btnActive, .butonHide{
+.roundButton,
+.btnActive,
+.butonHide,
+.btnSearch{
 	width: 4.5vw;
-  min-width: 20px;
 	border-radius: 50%;
-	
 }
 
 
 
 .roundButton:hover, 
 .btnActive,
-.butonHide:hover{
+.butonHide:hover,
+.btnSearch:active{
 	background: #171744;
 	transition: .3s;
 	transform: scale(1.2);

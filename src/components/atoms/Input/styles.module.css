@@ -1,15 +1,15 @@
 .searchBars{
-  width: 20vw;
-  height: 4vh;
-  border-radius: 4vh;
+  width: 26vw;
+  border-radius: 4.5vh;
   padding: 0 1vw 0 1vw;
-  font-size: 3vh;
+  font-size: 4vh;
   background-color: rgb(211, 103, 103);
 }
 
 @media screen and (max-width: 850px) {
   .searchBars{
-  width: 40vw;
+  width: 36vw;
+  z-index: 10;
   }
 }
 
