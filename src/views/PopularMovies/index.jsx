@@ -26,7 +26,7 @@ const Page = () => {
   return movies.length > 0 ? (
     <section className="">
       <Title
-      titleStyle={"h1"} 
+      titleStyle="h1"
       type='h1' 
       text={`Best popular movies`} />
         <div 

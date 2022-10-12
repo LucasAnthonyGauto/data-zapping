@@ -7,14 +7,12 @@ function App() {
   return (
       <AppProvider>
         <BrowserRouter>
-          <nav>
             <NavBars></NavBars>
             <NavLink to='/'>Home</NavLink>
             <NavLink to='movie/popular/1'>Popular Movies</NavLink>
             <NavLink to='movie/toprated/1'>Mejor Valoradas</NavLink>
             <NavLink to='movie/trending/1'>Tendencias</NavLink>
             <NavLink to='cart'>Mi carrito</NavLink>
-          </nav>
           <Routes>
             <Route exact path='/' element={<HomeScreen />} />
             {/* <Route path='/movies' element={<ListMoviesScreen />} /> */}

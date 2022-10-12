@@ -1,27 +1,35 @@
 .nav{
   background-color: rgb(25, 44, 107);
-  position: fixed;
-  top: 0;
+  position: sticky;
+  top: 0px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  height: 10vh;
+  align-items: center;
 }
 
 .nav-full{
   display: flex;
   justify-content: space-between;
+  position: sticky;
 }
 
 .nav-full-links{
   width: 60vw;
   display: flex;
+  top: 0px;
   align-items: center;
   justify-content: space-between;
-  font-size: 3.5vh;
-  margin: 1vw;
+  font-size: 1.5vw;
+  color: aliceblue;
+}
+.nav-full-links>li{
+  -webkit-text-stroke: .2px rgb(255, 255, 255);
+  cursor: pointer;
 }
 .nav-full-links-float{
-  font-size: 3.5vh;
+  font-size: 2vh;
   position: absolute;
   background-color: rgb(25, 44, 107);
   padding: 3vh 3vh 3vh 3vh;
@@ -32,13 +40,13 @@
   width: 35vw;
   display: flex;
   justify-content: space-around;
-  padding: 1vw;
+  height: 8vh;
+  padding: 1vh;
 }
 
 .nav-hide,
 .nav-hide-menu,
-.hide .nav-hide,
-.hide .nav-hide-menu{
+.nav-active{
   display: none;
 }
 
@@ -46,9 +54,12 @@
 @media screen and (max-width: 950px) {
   .nav-search{
     width: 55vw;
+    justify-content: flex-start;
+    height: 5.5vh;
   }
   .nav-full{
     display: none;
+    width: 35vw;
   }
   .nav-hide{
     display: initial;
@@ -56,13 +67,14 @@
     bottom: 0;
     top: 0;
     right: 0;
-    left: 30vh;
-    background-color: aqua;
+    padding-right: 30vh;
+    background-color: rgb(25, 44, 107);
     z-index: 1000;
     transition: 1s;
+    translate: 100vh 0;
     transform: translate(100vh 0);
   }
-  .hide .nav-hide{
+  .nav-active{
     transition: 1s;
     transform: translate(-100vh 0);
     display: initial;
@@ -70,8 +82,8 @@
     bottom: 0;
     top: 0;
     right: 0;
-    left: 30vh;
-    background-color: aqua;
+    padding-right: 30vh;
+    background-color: rgba(25, 44, 107, 0.70);
     z-index: 1000;
   }
   .nav-hide-menu{
@@ -82,14 +94,55 @@
 
 @media screen and (max-width: 450px){
   .nav-search{
-    width: 80vw;
-    display: flex;
-    justify-content: flex-start;
+    width: 5vh;
+    display: grid;
   }
+  .nav-search:hover{
+    width: 70vh;
+  }
+  .nav-search>Input,
+  .nav-search>Button{
+    grid-area: 1/2;
+  }
+  .nav-search>Button{
+    padding-right: 0;
+  }
+
   .nav-full{
     display: none;
   }
   .nav-hide{
     display: flex;
+  }
+  .nav-hide{
+    display: initial;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgb(25, 44, 107);
+    z-index: 1000;
+    transition: 1s;
+    translate: 100vh 0;
+    transform: translate(100vh 0);
+  }
+  .nav-active{
+    text-align: center;
+    padding-top: 13vh;
+    transition: 1s;
+    transform: translate(-100vh 0);
+    display: initial;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(25, 44, 107, 0.70);
+    z-index: 1000;
+  }
+  .nav-hide-menu{
+    display: initial;
+    z-index: 1010;
   }
 }

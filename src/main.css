@@ -1,13 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 /* reset */
 *{
   margin: 0;
   padding: 0;
   border: 0;
   list-style: none;
+  font-family: 'Crimson','Courier New', Courier;
 }
 body{
   background-color: rgba(46, 74, 166, 0.183);
-  padding: 10vw 0vw 5vw;
 }
 
 

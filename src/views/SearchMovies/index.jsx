@@ -15,10 +15,10 @@ const Page = () => {
       setMovies(res.data.results)
     }).catch(err => console.error(err))
   }
+
   useEffect(() => {
     fetchMovies()
   }, [page])
-
   return movies.length > 0 ? (
     <section className="">
       <Title

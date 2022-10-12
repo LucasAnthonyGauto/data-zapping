@@ -1,12 +1,12 @@
-import { Input, Button } from "../../atoms"
+import { Input, Button, Text } from "../../atoms"
 import {useNavigate} from "react-router-dom"
 import { useState } from "react"
 import styles from './styles.module.css'
-const NavBar = ({}) => {
+const NavBar = ({NLAPopular ,NLATrending ,NLMPopular ,NLMTopRated ,NLMTrending ,NLMUpcomiCinema ,NLSOnAir ,NLSPopular ,NLSTopRated ,NLSTrending, NLenguage,NFavorites}) => {
 
   const navigate = useNavigate()
   const [moviName, setMoviName] = useState("")
-  const [menuHide, setMenuHide] =useState("active")
+  const [menuHide, setMenuHide] = useState("nav-hide")
   const [hideMovi, setHideMovi] = useState(false)
   const [hideSeries, setHideSeries] = useState(false)
   const [hideActors, setHideActors] = useState(false)
@@ -23,11 +23,11 @@ const NavBar = ({}) => {
   }
 
   function hideMenu () {
-    if (menuHide === "hide") {
-      setMenuHide("active")
+    if (menuHide === "nav-active") {
+      setMenuHide("nav-hide")
     }
-    else if (menuHide === "active" ) {
-      setMenuHide("hide")
+    else if (menuHide === "nav-hide" ) {
+      setMenuHide("nav-active")
     }
   }
   function modifyMovi () {
@@ -54,8 +54,6 @@ const NavBar = ({}) => {
       setHideActors(false)
     }
   }
-  console.log(menuHide);
-
   return(
     <nav className={styles["nav"]}>
       <div className={styles["nav-search"]}>
@@ -66,20 +64,21 @@ const NavBar = ({}) => {
           name={"search"}
           />
         <Button 
+        text={"HOLA"}
+        btnStyle={"btnSearch"}
         buttonAction={() => searchMovie()}/>
       </div>
       <div className={styles["nav-full"]}>
         <ul className={styles["nav-full-links"]}>
-          <li>Home</li>
-          <li>Recommendation</li>
           <li 
             onMouseEnter={() => {setHideSeries(true)}}
             onMouseLeave={() => {setHideSeries(false)}}>Series
             {hideSeries && (
             <ul className={styles["nav-full-links-float"]}>
-              <li>Hola</li>
-              <li>Hola</li>
-              <li>Hola</li>
+              <li>{NLSTopRated}</li>
+              <li>{NLSPopular}</li>
+              <li>{NLSOnAir}</li>
+              <li>{NLSTrending}</li>
             </ul>
             )}
           </li>
@@ -88,9 +87,10 @@ const NavBar = ({}) => {
             onMouseLeave={() => {setHideMovi(false)}}>Movies
             {hideMovi && (
               <ul className={styles["nav-full-links-float"]}>
-                <li>Hola</li>
-                <li>Hola</li>
-                <li>Hola</li>
+                <li>{NLMTopRated}</li>
+                <li>{NLMPopular}</li>
+                <li>{NLMUpcomiCinema}</li>
+                <li>{NLMTrending}</li>
               </ul>
             )}
           </li>
@@ -99,27 +99,27 @@ const NavBar = ({}) => {
             onMouseLeave={() => {setHideActors(false)}}>Actors
             {hideActors && (
             <ul className={styles["nav-full-links-float"]}>
-              <li>Hola</li>
-              <li>Hola</li>
-              <li>Hola</li>
+              <li>{NLAPopular}</li>
+              <li>{NLATrending}</li>
             </ul>
             )}
           </li>
-          <li>Lenguage</li>
-          <li>Favorites</li>
+          <li>{NLenguage}</li>
+          <li>{NFavorites}</li>
         </ul>
       </div>
-      <div className={[styles["nav-hide"], styles[menuHide]].join(" ") }>
-          <spam></spam>
+      <div className={[styles[menuHide]]}>
+          <Text text={"Menu"}/>
           <ul className={styles["nav-hide-links"]}>
-          <li>Recommendation</li>
-          <li 
-            onClick={() => {modifySerie()}}>Series
-            {hideSeries && (
+            <li>Recommendation</li>
+            <li 
+              onClick={() => {modifySerie()}}>Series
+              {hideSeries && (
             <ul className={styles["nav-full-links-spam"]}>
-              <li>Hola</li>
-              <li>Hola</li>
-              <li>Hola</li>
+              <li>{NLSTopRated}</li>
+              <li>{NLSPopular}</li>
+              <li>{NLSOnAir}</li>
+              <li>{NLSTrending}</li>
             </ul>
             )}
           </li>
@@ -127,9 +127,10 @@ const NavBar = ({}) => {
             onClick={() => {modifyMovi()}}>Movies
             {hideMovi && (
               <ul className={styles["nav-full-links-spam"]}>
-                <li>Hola</li>
-                <li>Hola</li>
-                <li>Hola</li>
+                <li>{NLMTopRated}</li>
+                <li>{NLMPopular}</li>
+                <li>{NLMUpcomiCinema}</li>
+                <li>{NLMTrending}</li>
               </ul>
             )}
           </li>
@@ -137,15 +138,16 @@ const NavBar = ({}) => {
             onClick={() => {modifyActors()}}>Actors
             {hideActors && (
             <ul className={styles["nav-full-links-spam"]}>
-              <li>Hola</li>
-              <li>Hola</li>
-              <li>Hola</li>
+              <li>{NLAPopular}</li>
+              <li>{NLATrending}</li>
             </ul>
             )}
           </li>
+            <li>{NLenguage}</li>
+            <li>{NFavorites}</li>
           </ul>
       </div>
-        <div onClick={() => {hideMenu()}} className={[styles["nav-hide-menu"],styles[menuHide]].join(" ")}>
+        <div onClick={() => {hideMenu()}} className={[styles["nav-hide-menu"]]}>
           <div className={styles["line1"]}>Prueva</div>
           <div className={styles["line2"]}>Prueva</div>
           <div className={styles["line3"]}>Prueva</div>
