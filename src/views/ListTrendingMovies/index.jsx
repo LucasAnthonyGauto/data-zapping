@@ -17,11 +17,10 @@ const Page = () => {
       setMovies(res.data.results)
     }).catch(err => console.error(err))
   }
-  fetchMovies()
   
   useEffect(() => {
     fetchMovies()
-  }, [page])
+  }, [page, searchedTime])
 
   function modifyTime () {
     if (searchedTime === "week") {

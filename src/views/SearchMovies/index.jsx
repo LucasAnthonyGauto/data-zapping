@@ -18,7 +18,7 @@ const Page = () => {
 
   useEffect(() => {
     fetchMovies()
-  }, [page])
+  }, [page, movi])
   return movies.length > 0 ? (
     <section className="">
       <Title
@@ -39,3 +39,5 @@ const Page = () => {
 }
 
 export default Page
+
+/*cebolla peperoni y salchichas*/
